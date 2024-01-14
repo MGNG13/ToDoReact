@@ -1,0 +1,9 @@
+2024-01-13 21:36:31 info: tempDirectory:c:\Users\olafm\.vscode\extensions\embold-vscode.embold-0.1.6\temp
+2024-01-13 21:36:31 info: Congratulations, your extension "Embold" is now active!
+2024-01-13 21:36:31 info: Current Version Of Embold
+2024-01-13 21:36:31 info: 0.1.6
+2024-01-13 21:36:31 info: Extraction complete for source: c:\Users\olafm\.vscode\extensions\embold-vscode.embold-0.1.6\resources\embold-scanner-archive.zip, destination: c:\Users\olafm\.vscode\extensions\embold-vscode.embold-0.1.6\temp
+2024-01-13 21:36:39 info: Embold extension version response:
+2024-01-13 21:36:39 info: {"hasSupport":false,"version":"0.1.6","changeNotes":"<div> <p>Release Date: 09 Oct, 2023 <br><span>Bug fixes and improvements.</span></p> </div>"}
+2024-01-13 21:36:39 info: current version : 
+2024-01-13 21:36:39 info: latest version : 

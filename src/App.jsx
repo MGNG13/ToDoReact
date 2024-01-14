@@ -5,59 +5,59 @@ import TodoTable from './components/TodoTable';
 import { ADD, DELETE, DELETEALL, playAudio } from './lib/AudioPlayer';
 
 function App({ ReadyListener, TodoItems }) {
-  const [items, setItems] = useState([]);
+    const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    localStorage.setItem('todo', JSON.stringify(items));
-  }, [items]);
+    useEffect(() => {
+        localStorage.setItem('todo', JSON.stringify(items));
+    }, [items]);
 
-  ReadyListener.addEventListener('finishedSplash', () => 
-    setItems(TodoItems ? JSON.parse(TodoItems) : [])
-  );
+    ReadyListener.addEventListener('finishedSplash', () =>
+        setItems(TodoItems ? JSON.parse(TodoItems) : [])
+    );
 
-  const createNewTodo = (newTodo) => {
-    setItems([...items, { ...newTodo }]);
-    playAudio(ADD);
-  }
-
-  const updateTodo = (oldTodo, newTodoItem) => {
-    let newTodo = [...items];
-    const index = newTodo.indexOf(oldTodo);
-    if (index !== -1) {
-      newTodo.splice(index, 1, newTodoItem);
-      setItems(newTodo);
+    const createNewTodo = (newTodo) => {
+        setItems([...items, { ...newTodo }]);
+        playAudio(ADD);
     }
-  }
 
-  const deleteTodo = (todo) => {
-    let newTodo = [...items];
-    const index = newTodo.indexOf(todo);
-    if (index !== -1) {
-      newTodo.splice(index, 1);
-      setItems(newTodo);
-      playAudio(DELETE);
+    const updateTodo = (oldTodo, newTodoItem) => {
+        let newTodo = [...items];
+        const index = newTodo.indexOf(oldTodo);
+        if (index !== -1) {
+            newTodo.splice(index, 1, newTodoItem);
+            setItems(newTodo);
+        }
     }
-  }
 
-  const deleteAll = () => {
-    setItems([]);
-    playAudio(DELETEALL);
-  }
+    const deleteTodo = (todo) => {
+        let newTodo = [...items];
+        const index = newTodo.indexOf(todo);
+        if (index !== -1) {
+            newTodo.splice(index, 1);
+            setItems(newTodo);
+            playAudio(DELETE);
+        }
+    }
 
-  return (
-      <>
-        <TodoHeader
-          Items={items}
-          DeleteAll={deleteAll} />
-        <div className='App'>
-          <TodoCreator
-            CreateTodo={createNewTodo} />
-          <TodoTable
-            TodoItems={items}
-            DeleteItems={deleteTodo}
-            UpdateTodo={updateTodo} />
-        </div>
-      </>
+    const deleteAll = () => {
+        setItems([]);
+        playAudio(DELETEALL);
+    }
+
+    return (
+        <>
+            <TodoHeader
+                Items={items}
+                DeleteAll={deleteAll} />
+            <div className='App'>
+                <TodoCreator
+                    CreateTodo={createNewTodo} />
+                <TodoTable
+                    TodoItems={items}
+                    DeleteItems={deleteTodo}
+                    UpdateTodo={updateTodo} />
+            </div>
+        </>
     );
 }
 
